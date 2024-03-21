@@ -1,0 +1,297 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' %}" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700' %}" rel="stylesheet">
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+
+    
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <title>Delux Hotel</title>
+  
+
+<style>
+  /* Add your styling to this CSS file */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('/static/images/register.jpg'); /* Set the path to your background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #fff; /* Set your desired text color */
+    margin-top: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.7rem;
+    color: #fff;
+    background: #7fcdd3;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1ad8c8; /* Set your desired button background color on hover */
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #4392ac; /* Set your desired table header background color */
+    color: #ffffff; /* Set your desired table header text color */
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Set your desired background color for even rows */
+}
+
+tr:nth-child(odd) {
+    background-color: #b7bfbe; /* Set your desired background color for even rows */
+}
+
+tr:hover {
+    background-color: #e0e0e0; /* Set your desired background color on row hover */
+}
+
+a.edit, a.delete {
+    display: inline-block;
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-right: 5px;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+a.edit {
+    background-color: #28a745; /* Set your desired background color for edit link */
+}
+
+a.delete {
+    background-color: #dc3545; /* Set your desired background color for delete link */
+}
+
+ </style>
+
+  <body>
+  
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Deluxe</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="/home" class="nav-link">Home</a></li>
+			  {% if request.user.is_authenticated %}
+              <li class="nav-item active"><a href="/create" class="nav-link">Add Rooms</a></li>
+              <li class="nav-item active"><a href="/dashboard" class="nav-link">View Rooms</a></li>
+              <li class="nav-item active"><a href="/rooms" class="nav-link">Rooms</a></li>
+	            <li class="nav-item active"><a href="/contact" class="nav-link">Contact</a></li>
+			        <li class="nav-item active"><a class="nav-link" href="/logout">Logout</a></li> 
+			  {% else %}
+              <li class="nav-item active"><a class="nav-link" href="/register">Register</a></li>
+              <li class="nav-item active"><a class="nav-link" href="/login">Login</a></li>
+              {% endif %}
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+
+<div class="hero-wrap"><img src="{% static 'images/bg_1.jpg'' %}" alt="">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
+      <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+          <div class="text">
+            <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html"></p>
+	            <h1 class="mb-4 bread">Rooms</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section class="ftco-section contact-section col ">
+    <div class="row mb-5 contact-info">
+      <div class="col-md-12 d-flex">
+          <div class="info bg-white p-7 ">
+            <p class="heading" style="font-size: 50px;margin-left: 570px;color: azure;font-weight: 700; margin-top: -170px;"> View Rooms</p><br>
+             {% csrf_token %}
+            
+          
+    <section class="ftco-section">
+      <div class="container">
+        
+
+        <table border="2" align="center">
+            <tr>
+                <th>Sr No.</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Details</th>
+                <th>Category</th>
+                <th>Images</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                
+            </tr>
+            {% for x in data %}
+            
+            <tr>
+                
+                <td>{{ forloop.counter }}</td>
+                <td>{{ x.name }}</td>
+                <td>{{ x.price }}</td>
+                <td>{{ x.details }}</td>
+                <td>{{ x.category }}</td>
+                <td><img src = "{{x.image.url}}" style="width: 100px;height:100px"></td>
+                <td><a href="/edit/{{ x.id }}">Update</a></td>
+                <td><a href="/delete/{{ x.id }}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+      </div>
+    </section>
+
+
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <div class="container">
+          <div class="row mb-5">
+            <div class="col-md">
+              <div class="ftco-footer-widget mb-4">
+                <h2 class="ftco-heading-2">Deluxe Hotel</h2>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                  <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                  <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                  <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="ftco-footer-widget mb-4 ml-md-5">
+                <h2 class="ftco-heading-2">Useful Links</h2>
+                <ul class="list-unstyled">
+                  <li><a href="#" class="py-2 d-block">Blog</a></li>
+                  <li><a href="#" class="py-2 d-block">Rooms</a></li>
+                  <li><a href="#" class="py-2 d-block">Amenities</a></li>
+                  <li><a href="#" class="py-2 d-block">Gift Card</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md">
+               <div class="ftco-footer-widget mb-4">
+                <h2 class="ftco-heading-2">Privacy</h2>
+                <ul class="list-unstyled">
+                  <li><a href="#" class="py-2 d-block">Career</a></li>
+                  <li><a href="#" class="py-2 d-block">About Us</a></li>
+                  <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+                  <li><a href="#" class="py-2 d-block">Services</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="ftco-footer-widget mb-4">
+                  <h2 class="ftco-heading-2">Have a Questions?</h2>
+                  <div class="block-23 mb-3">
+                    <ul>
+                      <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+                      <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+                      <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-center">
+      
+              <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+      Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+      <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- loader -->
+      <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+      
+      
+      
+      <script src="{% static 'js/jquery.min.js' %}"></script>
+      <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+      <script src="{% static 'js/popper.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+      <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+      <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+      <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+      <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+      <script src="{% static 'js/aos.js' %}"></script>
+      <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
+      <script src="{% static 'js/jquery.timepicker.min.js' %}"></script>
+      <script src="{% static 'js/scrollax.min.js' %}"></script>
+      <script src="{% static 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false' %}"></script>
+      <script src="{% static 'js/google-map.js' %}"></script>
+      <script src="{% static 'js/main.js' %}"></script>
+        
+        <script src="{% static 'js\bootstrap.min.js' %}"> </script>
+      
+        <script src="{% static 'js\popper.js' %}"></script>
+      
+      </body>
+      </html>
